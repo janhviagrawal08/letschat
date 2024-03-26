@@ -6,7 +6,7 @@ Real-time messaging: Users can send and receive messages instantly.
 Ease of usage: Users can simply enter their name in the prompt box and go ahead with chatting.
 
 Installation
-Clone the repository: git clone https://github.com/yourusername/projectname.git](https://github.com/janhviagrawal08/letschat
+Clone the repository: git clone https://github.com/janhviagrawal08/letschat
 Navigate to the project directory: cd letschat
 NOTE: IT HAS ALREADY BEEN HOSTED ON RENDER
 
