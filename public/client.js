@@ -1,99 +1,56 @@
-/*const socket = io();
-
+const socket = io();
 let name;
 let textarea = document.querySelector('#textarea');
+let messageArea = document.querySelector('.message__area');
+let sendButton = document.querySelector('#sendButton');
 
-let messagArea = document.querySelector('.message__area');
-do{
-   name  = prompt('PLease enter your name: ');
-}while(!name)
-
-
-textarea.addEventListener('keyup' , (e) =>{
-if(e.key === 'Enter'){
-    sendMessage(e.target.value);
-}
-});
-
-function sendMessage(message){
-    let msg = {
-        user: name,       //object
-        message: message
-    }
-
-    //append
-
-    appendMessage(msg, 'outgoing');
-}
-
-function appendMessage(msg, type){
-
-
-    let mainDiv = document.createElement('div');
-    let className = type
-    mainDiv.classList.add(className, 'message' );
-
-    let markup = `
-    <h4> ${msg.user} </h4>
-<p> ${msg.message}</p>
-    `
-mainDiv.innerHTML = markup;
-
-messageArea.appendChild(mainDiv);
-}*/
-
-const socket = io()
-let name;
-let textarea = document.querySelector('#textarea')
-let messageArea = document.querySelector('.message__area')
 do {
     name = prompt('Please enter your name: ')
 } while(!name)
 
 textarea.addEventListener('keyup', (e) => {
     if(e.key === 'Enter') {
-        sendMessage(e.target.value)
+        sendMessage(e.target.value);
     }
-})
+});
+
+sendButton.addEventListener('click', () => {
+    sendMessage(textarea.value);
+});
 
 function sendMessage(message) {
     let msg = {
         user: name,
         message: message.trim()
-    }
+    };
     // Append 
-    appendMessage(msg, 'outgoing')
-    textarea.value = ''
-    scrollToBottom()
+    appendMessage(msg, 'outgoing');
+    textarea.value = '';
+    scrollToBottom();
 
     // Send to server 
-    socket.emit('message', msg)
-
+    socket.emit('message', msg);
 }
 
 function appendMessage(msg, type) {
-    let mainDiv = document.createElement('div')
-    let className = type
-    mainDiv.classList.add(className, 'message')
+    let mainDiv = document.createElement('div');
+    let className = type;
+    mainDiv.classList.add(className, 'message');
 
     let markup = `
         <h4>${msg.user}</h4>
         <p>${msg.message}</p>
-    `
-    mainDiv.innerHTML = markup
-    messageArea.appendChild(mainDiv)
+    `;
+    mainDiv.innerHTML = markup;
+    messageArea.appendChild(mainDiv);
 }
 
-// Recieve messages 
+// Receive messages 
 socket.on('message', (msg) => {
-    appendMessage(msg, 'incoming')
-    scrollToBottom()
-})
+    appendMessage(msg, 'incoming');
+    scrollToBottom();
+});
 
 function scrollToBottom() {
-    messageArea.scrollTop = messageArea.scrollHeight
+    messageArea.scrollTop = messageArea.scrollHeight;
 }
-
-
-// receive the messages
-

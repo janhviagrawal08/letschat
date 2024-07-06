@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -10,64 +11,120 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: #F8F8F8;
+    background: url('/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
     font-family: 'Roboto', sans-serif;
 }
+
 section.chat__section {
     width: 800px;
     max-width: 90%;
-    background: #fff;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
+
 .brand {
     padding: 20px;
-    background: #f1f1f1;
+    background: #4b1fa45c; /* Changed to a color matching the background */
     display: flex;
     align-items: center;
+    color: #fff;
 }
+
+.brand img {
+    height: 40px;
+}
+
 .brand h1 {
     text-transform: uppercase;
-    font-size: 20px;
-    color: #444;
+    font-size: 24px;
     margin-left: 10px;
 }
-.message__area{
-    height: 500px;
+
+.message__area {
+    height: 300px;
     padding: 16px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    padding-top: 40px;
+    background: rgba(0, 0, 0, 0.452); /* Changed to a color matching the background */
 }
+
 textarea {
-    width: 100%;
+    flex: 1;
     border: none;
     padding: 20px;
     font-size: 16px;
+    height: 100px;
     outline: none;
-    background: #FBFBFB;
+    background: rgba(255, 255, 255, 0.8); /* Changed to match overall color scheme */
+    /* border-top: 1px solid #ddd; */
+    resize: none;
+    color: #333;
+}
+
+.input__area {
+    display: flex;
+    align-items: center;
+    background: rgb(255, 255, 255); /* Changed to match overall color scheme */
+
+}
+
+#sendButton {
+    background: rgba(255, 255, 255, 0.815); /* Changed to match overall color scheme */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#sendButton img {
+    width: 24px;
+    height: 24px;
 }
 
 .message {
-    padding: 20px; 
-    border-radius: 4px; 
-    margin-bottom: 40px;
-    max-width: 300px;
+    padding: 8px; 
+    border-radius: 8px; 
+    margin-bottom: 20px;
+    max-width: 60%;
     position: relative;
+    word-wrap: break-word;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
+
 .incoming {
-    background: #8F8BE8;
+    background: #4b1fa45c; /* Changed to match the brand color */
     color: #fff;  
+    align-self: flex-start;
 }
+
 .outgoing {
-    background: #e9eafd;
-    color: #787986;
-    margin-left: auto;
+    background: #4b1fa45c; /* Changed to match overall color scheme */
+    color: #fff;
+    align-self: flex-end;
 }
+
 .message h4 {
-    position: absolute;
-    top: -20px;
-    left: 0;
-    color: #333;
+    margin-bottom: 5px;
     font-size: 14px;
+    font-weight: bold;
+}
+
+.message p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.message__area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.message__area::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+.message__area::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
 }

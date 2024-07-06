@@ -8,14 +8,16 @@
 </head>
 <body>
     <section class="chat__section">
-        <div class ="brand">
+        <div class="brand">
             <img src="/image.png" height="40px">
             <h1>Lets chat!</h1>
         </div>
-        <div class="message__area">
-        </div>
-        <div>
-            <textarea id="textarea" cols="30" rows="10" placeholder="Write a mesage"></textarea>
+        <div class="message__area"></div>
+        <div class="input__area">
+            <textarea id="textarea" cols="30" rows="10" placeholder="Type a message.."></textarea>
+            <button id="sendButton">
+                <img src="/arrow-icon.png" alt="Send">
+            </button>
         </div>
     </section>
     <script src="/socket.io/socket.io.js"></script>
